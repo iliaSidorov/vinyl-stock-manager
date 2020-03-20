@@ -48,4 +48,11 @@ public class AppController {
 
         return modelAndView;
     }
+
+    @RequestMapping("/delete/{id}")
+    public String deleteItem(@PathVariable(name = "id") Long id) {
+        service.delete(id);
+
+        return "redirect:/";
+    }
 }
