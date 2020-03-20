@@ -5,7 +5,9 @@ import com.iliasidorov.vinylstockmanager.service.VinylService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.List;
 
@@ -27,5 +29,12 @@ public class AppController {
         Vinyl vinyl = new Vinyl();
         model.addAttribute("vinyl", vinyl);
         return "new_item";
+    }
+
+    @RequestMapping(value = "/save", method = RequestMethod.POST)
+    public String saveNewItem(@ModelAttribute("vinyl") Vinyl vinyl) {
+        service.save(vinyl);
+
+        return "redirect:/";
     }
 }
