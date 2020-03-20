@@ -30,6 +30,10 @@
                 <td th:text="${vinyl.label}">Label</td>
                 <td th:text="${vinyl.country}">Country</td>
                 <td th:text="${vinyl.released}">Released</td>
+                <td>
+                    <a th:href="@{'/edit/' + ${vinyl.id}}">Edit</a>
+
+                </td>
             </tr>
         </tbody>
     </table>
