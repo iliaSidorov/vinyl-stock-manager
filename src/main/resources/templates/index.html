@@ -2,8 +2,39 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Vinyl Stock Manager</title>
+    <!--<style>
+        .greentext {color: cadetblue}
+    </style>-->
 </head>
 <body>
+<div align="center">
+    <h1 class="greentext">VINYL STOCK MANAGER</h1>
+    <a href="new_vinyl">Add new item</a>
+    <br/><br/>
+    <table border="1" cellpadding="10">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Performer</th>
+                <th>Record</th>
+                <th>Label</th>
+                <th>Country</th>
+                <th>Released</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="vinyl : ${vinylList}">
+                <td th:text="${vinyl.id}">ID</td>
+                <td th:text="${vinyl.performer}">Performer</td>
+                <td th:text="${vinyl.record}">Record</td>
+                <td th:text="${vinyl.label}">Label</td>
+                <td th:text="${vinyl.country}">Country</td>
+                <td th:text="${vinyl.released}">Released</td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
 
 </body>
 </html>
