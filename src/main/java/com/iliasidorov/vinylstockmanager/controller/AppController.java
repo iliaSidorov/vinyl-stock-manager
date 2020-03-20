@@ -18,8 +18,14 @@ public class AppController {
     @RequestMapping("/")
     public String viewHomePage(Model model) {
         List<Vinyl> vinylList = service.listAll();
-
         model.addAttribute("vinylList", vinylList);
         return "index";
+    }
+
+    @RequestMapping("/new")
+    public String showNewItemForm(Model model) {
+        Vinyl vinyl = new Vinyl();
+        model.addAttribute("vinyl", vinyl);
+        return "new_item";
     }
 }
